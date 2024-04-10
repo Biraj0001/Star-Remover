@@ -16,11 +16,15 @@
 <div class="done">
     Finished Conversion <i class="bi bi-check2-circle"></i>
 </div>
+<div class="nostars">
+    You are proving text with no stars in it <i class="bi bi-emoji-angry-fill"></i> </i>
+</div>
 </body>
 <link rel="stylesheet" href="style.css">
 <script src="https://code.jquery.com/jquery-3.6.1.js"integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="crossorigin="anonymous"></script>
 <script>
     $(".done").hide();
+    $(".nostars").hide();
 function removestar(s){
     let h = s.length;
     let x = "";
@@ -33,14 +37,37 @@ function removestar(s){
 
     return x;
 }
+
+function check(s){
+    let h = s.length;
+    for(let i = 0 ; i<h ; i++){
+
+        if(s[i] == '*'){
+            return true;
+        }
+    }
+    return false;
+}
 $(".conv").click(function(){
+
+    
     let p = $(".text").val();
+
+    if(check(p)){
     let m = removestar(p);
     $(".text").val(m);
     $(".done").fadeIn();
     setTimeout(function(){
        $('.done').fadeOut();
    }, 500);
+    }
+    else{
+        $(".nostars").fadeIn();
+        setTimeout(function(){
+       $('.nostars').fadeOut();
+   }, 800);
+    }
+    
 })
 </script>
 </html>
