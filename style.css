@@ -58,3 +58,11 @@ h1{
     top: 20vh;
     left: 30%;
 }
+.nostars{
+    color: #f8aa9f;
+    background-color: black;
+    font-size: 50px;
+    position: absolute;
+    top: 20vh;
+    left: 20%;
+}
